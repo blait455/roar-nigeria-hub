@@ -29,11 +29,11 @@ class AppServiceProvider extends ServiceProvider
     {
         // SHARE TO ALL ROUTES
         // $settings  = Setting::first();
-        $settings = DB::table('settings')->first();
-        view()->share('settings', $settings);
+        // $settings = DB::table('settings')->first();
+        // view()->share('settings', $settings);
 
-        $background = DB::table('backgrounds')->first();
-        view()->share('background', $background);
+        // $background = DB::table('backgrounds')->first();
+        // view()->share('background', $background);
 
         if (! $this->app->runningInConsole()) {
 
