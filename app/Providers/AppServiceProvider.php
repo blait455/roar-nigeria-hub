@@ -11,8 +11,10 @@ use App\Post;
 use App\Tag;
 use App\Category;
 use App\Contact;
+use App\Event;
 use App\Partners;
 use App\Setting;
+use App\Startup;
 use Illuminate\Support\Facades\DB;
 
 // use App\Message;
@@ -29,11 +31,11 @@ class AppServiceProvider extends ServiceProvider
     {
         // SHARE TO ALL ROUTES
         // $settings  = Setting::first();
-        // $settings = DB::table('settings')->first();
-        // view()->share('settings', $settings);
+        $settings = DB::table('settings')->first();
+        view()->share('settings', $settings);
 
-        // $background = DB::table('backgrounds')->first();
-        // view()->share('background', $background);
+        $background = DB::table('backgrounds')->first();
+        view()->share('background', $background);
 
         if (! $this->app->runningInConsole()) {
 
@@ -83,6 +85,13 @@ class AppServiceProvider extends ServiceProvider
                 $view->with(compact('archives','categories','tags','popularposts', 'latest_posts'));
             });
 
+            view()->composer('frontend.partials.header', function($view) {
+                $posts = Post::all();
+                $events = Event::all();
+                $startups = Startup::all();
+
+                $view->with(compact('posts', 'events', 'startups'));
+            });
         }
     }
 

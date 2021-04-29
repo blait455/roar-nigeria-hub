@@ -28,8 +28,8 @@ Route::get('/gallery', 'PagesController@gallery')->name('gallery');
 
 Route::get('/applications/incubation', 'PagesController@incubation')->name('incubation');
 Route::post('/applications/store', 'PagesController@incubationStore')->name('incubation.store');
-Route::get('/applications/roar_blait', 'PagesController@roar_blait')->name('roar_blait');
-
+Route::get('/register/wdts', 'PagesController@wdts')->name('wdts');
+Route::post('/register/wdts', 'PagesController@wdtsStore')->name('wdts.store');
 
 Route::get('/blog', 'PagesController@blog')->name('blog');
 Route::get('/blog/{id}', 'PagesController@blogshow')->name('blog.show');
@@ -69,6 +69,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'as'=>'admin.'], function
     Route::resource('partners','PartnerController');
     Route::resource('events','EventController');
     Route::resource('incubation','IncubationController');
+    Route::resource('wdts','wdtsController');
 
     Route::get('posts', 'PostController@index')->name('posts.index');
     Route::get('posts/create', 'PostController@create')->name('posts.create');

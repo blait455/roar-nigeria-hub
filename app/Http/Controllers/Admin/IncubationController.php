@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Aspect;
 use App\Http\Controllers\Controller;
 use App\Incubation;
+use App\TeamMembers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -73,6 +74,18 @@ class IncubationController extends Controller
         $startup->biz_experience    = $request->biz_experience;
         $startup->reason            = $request->reason;
         $startup->save();
+
+        for ($i=0; $i < count($request->tname); $i++) {
+            if (isset($request->temail[$i]) && isset($request->tphone[$i]) && isset($request->tskill[$i])) {
+                TeamMembers::create([
+                    'incu_id'    =>  $startup->id,
+                    'name'          =>  $request->tname[$i],
+                    'email'         =>  $request->temail[$i],
+                    'phone'         =>  $request->tphone[$i],
+                    'skill'         =>  $request->tskill[$i],
+                ]);
+            }
+        }
 
         Toastr::success('message', 'Application submitted successfully.');
         return redirect()->route('admin.incubation.index');

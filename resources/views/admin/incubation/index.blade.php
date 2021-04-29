@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Incubation')
+@section('title', 'Incubation applications')
 
 @push('styles')
 

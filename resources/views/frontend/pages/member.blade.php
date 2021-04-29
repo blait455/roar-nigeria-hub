@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Roar nigeria hub - Event')
+@section('title','Roar nigeria hub - Management member')
 
 @section('main-content')
     <!-- Breadcrumbs Start -->

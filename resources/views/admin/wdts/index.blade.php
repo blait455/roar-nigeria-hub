@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Management team')
+@section('title', 'Startups')
 
 @push('styles')
 
@@ -11,18 +11,18 @@
 
 @section('content')
 
-    {{-- <div class="block-header">
-        <a href="{{route('admin.users.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+    <div class="block-header">
+        <a href="{{route('admin.wdts.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
-    </div> --}}
+    </div>
 
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>MANAGEMENT TEAM</h2>
+                    <h2>STUDENTS</h2>
                 </div>
                 <div class="body">
                     <div class="table-responsive">
@@ -31,8 +31,8 @@
                                 <tr>
                                     <th>SL.</th>
                                     <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Position</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -40,26 +40,26 @@
                                 <tr>
                                     <th>SL.</th>
                                     <th>Name</th>
-                                    <th>Image</th>
-                                    <th>Position</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                @foreach( $team as $key => $user )
+                                @foreach( $students as $key => $student )
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$user->name}}</td>
-                                    <td><img src="{{Storage::url('team/'.$user->image)}}" alt="{{$user->name}}" width="80" class="img-responsive img-rounded"></td>
-                                    <td>{{ $user->position }}</td>
+                                    <td>{{ $student->name }}</td>
+                                    <td>{{ $student->email }}</td>
+                                    <td>{{ $student->phone }}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.team.edit',$user->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{ route('admin.wdts.edit',$student->id) }}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteTag({{$user->id}})">
+                                        <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteTag({{ $student->id }})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.team.destroy',$user->id)}}" method="POST" id="del-tag-{{$user->id}}" style="display:none;">
+                                        <form action="{{route('admin.wdts.destroy',$student->id)}}" method="POST" id="del-tag-{{ $student->id }}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>
@@ -109,7 +109,7 @@
                     document.getElementById('del-tag-'+id).submit();
                     swal(
                     'Deleted!',
-                    'Member has been deleted.',
+                    'Student has been deleted.',
                     'success'
                     )
                 }

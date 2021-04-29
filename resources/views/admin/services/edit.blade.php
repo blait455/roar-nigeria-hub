@@ -1,10 +1,10 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Edit Testimonial')
+@section('title', 'Edit service')
 
 @push('styles')
 
-    
+
 @endpush
 
 
@@ -34,14 +34,14 @@
                                     <label class="form-label">Service Title</label>
                                 </div>
                             </div>
-    
+
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea name="description" rows="4" class="form-control no-resize">{{ $service->description }}</textarea>
                                     <label class="form-label">Description</label>
                                 </div>
                             </div>
-    
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" name="icon" class="form-control" value="{{ $service->icon }}">
@@ -49,7 +49,7 @@
                                 </div>
                                 <small>To get icons name list just click the link: <a href="https://materializecss.com/icons.html" target="_blank">Materialize Icon</a></small>
                             </div>
-    
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="number" name="service_order" class="form-control" min="1" value="{{ $service->service_order }}">

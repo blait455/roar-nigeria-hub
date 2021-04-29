@@ -72,7 +72,7 @@ class ManagementController extends Controller
         }
 
         $team = new Management();
-        $team->name         = $request->name;
+        $team->name             = $request->name;
         $team->email         = $request->email;
         $team->phone         = $request->phone;
         $team->bio         = $request->bio;

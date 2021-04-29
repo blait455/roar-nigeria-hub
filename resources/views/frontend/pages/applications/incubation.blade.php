@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Roar nigeria hub - Contact Page')
+@section('title','Roar nigeria hub - Bussiness incubation application')
 
 @section('main-content')
     <!-- Breadcrumbs Start -->
@@ -138,11 +138,46 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="card col-lg-12 from-control">
+                                        <div class="card-title">
+                                            <h4 class="text-center">Add team members</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive col-lg-12">
+                                                <table class="table table-bordered table-hover" id="tab_logic">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">SL.</th>
+                                                        <th class="text-center">Name</th>
+                                                        <th class="text-center">Email</th>
+                                                        <th class="text-center">Phone</th>
+                                                        <th class="text-center">Skill</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr id='addr0'>
+                                                        <td class="text-center">1</td>
+                                                        <td class="text-center"><input type="text" name="tname[]" class="form-controll" required></td>
+                                                        <td class="text-center"><input type="email" name="temail[]" class="form-controll" required></td>
+                                                        <td class="text-center"><input type="number" name="tphone[]" class="form-controll" required></td>
+                                                        <td class="text-center"><input type="text" name="tskill[]" class="form-controll" required></td>
+                                                    </tr>
+                                                    <tr id='addr1'></tr>
+                                                </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-12"><br>
+                                                <button type="button" id="add_row" class="btn btn-primary float-left">Add Row</button>
+                                                <button id='delete_row' type="button" class="float-right btn btn-danger">Remove Row</button>
+                                            </div>
+                                        </div>
+                                      </div>
+                                        <br>
+                                    </div>
 
-                                </div>
+                                </div><br>
                                 <div class="btn-part">
                                     <div class="form-group mb-0">
-                                        {{-- <input class="readon learn-more" type="submit"> --}}
                                         <button class="submit learn-more readon" type="submit">Submit</button>
                                     </div>
                                 </div>
@@ -157,9 +192,46 @@
         </div>
     </div>
     <!-- Contact Section Start -->
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var i=1;
+            $("#add_row").click(function(){b=i-1;
+                $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+                $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+                i++;
+            });
+            $("#delete_row").click(function(){
+                if(i>1){
+                $("#addr"+(i-1)).html('');
+                i--;
+                }
+                calc();
+            });
+        });
+    </script>
 @endsection
 
 @section('scripts')
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var i=1;
+            $("#add_row").click(function(){b=i-1;
+                $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+                $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+                i++;
+            });
+            $("#delete_row").click(function(){
+                if(i>1){
+                $("#addr"+(i-1)).html('');
+                i--;
+                }
+                calc();
+            });
+        });
+    </script>
+
 <script>
     $('textarea#message').characterCounter();
 

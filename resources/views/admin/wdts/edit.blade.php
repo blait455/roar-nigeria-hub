@@ -14,7 +14,7 @@
     <div class="block-header"></div>
 
     <div class="row clearfix">
-        <form action="{{route('admin.startup.update', $startup->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.wdts.update', $student->id)}}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="col-lg-8 col-md-4 col-sm-12 col-xs-12">
@@ -26,89 +26,64 @@
 
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input type="text" name="name" class="form-control" value="{{ $startup->name }}">
-                            <label class="form-label">Venture name</label>
+                            <input type="text" name="name" class="form-control" value="{{ $student->name }}">
+                            <label class="form-label">Full name</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input type="text" name="phone" class="form-control" value="{{ $startup->phone }}">
+                            <input type="text" name="phone" class="form-control" value="{{ $student->phone }}">
                             <label class="form-label">Phone number</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input type="text" name="email" class="form-control" value="{{ $startup->email }}">
+                            <input type="text" name="email" class="form-control" value="{{ $student->email }}">
                             <label class="form-label">email</label>
                         </div>
                     </div>
 
-                    <label class="form-label">Status</label>
+                    <label class="form-label">Shirt size</label>
                     <div class="row">
                         <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="incubatee" value="1" {{ $startup->status == 1 ? 'checked' : '' }}>
-                            <label class="form-check-label" for="incubatee">Incubatee</label>
+                            <input class="form-check-input" type="radio" name="size" id="small" value="s" {{ $student->size == 's' ? 'checked' : '' }}>
+                            <label class="form-check-label" for="incubatee">Small</label>
                         </div>
                         <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="mvp" value="2" {{ $startup->status == 2 ? 'checked' : '' }}>
-                            <label class="form-check-label" for="mvp">MVP</label>
+                            <input class="form-check-input" type="radio" name="size" id="medium" value="m" {{ $student->size == 'm' ? 'checked' : '' }}>
+                            <label class="form-check-label" for="medium">Medium</label>
                         </div>
                         <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="pmvp" value="3" {{ $startup->status == 3 ? 'checked' : '' }}>
-                            <label class="form-check-label" for="pmvp">Post MVP</label>
+                            <input class="form-check-input" type="radio" name="size" id="large" value="l" {{ $student->size == 'l' ? 'checked' : '' }}>
+                            <label class="form-check-label" for="large">Large</label>
+                        </div>
+                        <div class="form-check form-check-inline col-md-4">
+                            <input class="form-check-input" type="radio" name="size" id="x-large" value="xl" {{ $student->size == 'xl' ? 'checked' : '' }}>
+                            <label class="form-check-label" for="x-large">X-Large</label>
+                        </div>
+                        <div class="form-check form-check-inline col-md-4">
+                            <input class="form-check-input" type="radio" name="size" id="xx-large" value="xxl" {{ $student->size == 'xxl' ? 'checked' : '' }}>
+                            <label class="form-check-label" for="xx-large">XX-Large</label>
                         </div>
                     </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
-                            <input type="text" name="idea" class="form-control" value="{{ $startup->idea }}">
-                            <label class="form-label">Idea or problem you are solving</label>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="">Body</label>
-                        <textarea name="description" id="tinymce">{{ $startup->description }}</textarea>
-                    </div>
-
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2>SELECT </h2>
+                    <h2>UPLOAD PROOF OF PAYMENT </h2>
                 </div>
                 <div class="body">
-
-                    <div class="form-group form-float">
-                        <div class="form-line {{$errors->has('aspects') ? 'focused error' : ''}}">
-                            <label>Select Aspect</label>
-                            <select name="aspect_id" class="form-control show-tick">
-                                @foreach($aspects as $aspect)
-                                    <option value="{{$aspect->id}}" {{ $startup->aspect_id == $aspect->id ? 'checked' : '' }}>{{$aspect->title}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-
                     <div class="form-group">
-                        <img src="{{ Storage::url('startups/'.$startup->image) }}" id="image-imgsrc" class="img-responsive">
-                        <input type="file" name="image" id="image-image-input" style="display:none;">
+                        <img src="{{ Storage::url('blait/wdts/'.$student->pop) }}" id="image-imgsrc" class="img-responsive">
+                        <input type="file" name="pop" id="image-image-input" style="display:none;">
                         <button type="button" class="btn bg-grey btn-sm waves-effect m-t-15" id="image-image-btn">
                             <i class="material-icons">image</i>
                             <span>UPLOAD GROUP IMAGE</span>
                         </button>
                     </div><hr>
-                    <div class="form-group">
-                        <img src="{{ Storage::url('startups/'.$startup->logo) }}" id="logo-imgsrc" class="img-responsive">
-                        <input type="file" name="logo" id="logo-image-input" style="display:none;">
-                        <button type="button" class="btn bg-grey btn-sm waves-effect m-t-15" id="logo-image-btn">
-                            <i class="material-icons">image</i>
-                            <span>UPLOAD LOGO</span>
-                        </button>
-                    </div><hr>
-
-                    <a href="{{route('admin.startup.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
+                    <a href="{{route('admin.wdts.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
                         <span>BACK</span>
                     </a>

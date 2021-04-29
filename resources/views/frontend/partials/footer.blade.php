@@ -1,6 +1,6 @@
         <!-- Footer Start -->
-        <footer id="rs-footer" class="rs-footer">
-            <div class="footer-top"  style="background-image:url({{Storage::url('background/'.$background->f5_bg)}});">
+        <footer id="rs-footer" class="rs-footer"  style="background-image:url({{Storage::url('background/'.$background->f5_bg)}});">
+            <div class="footer-top">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-12 col-sm-12 footer-widget">

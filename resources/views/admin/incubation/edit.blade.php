@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Create Post')
+@section('title', 'Edit application')
 
 @push('styles')
 
@@ -121,6 +121,76 @@
                     </div>
                 </div>
             </div>
+            <div class="card">
+                <div class="header">
+                    <h2>TEAM MEMBERS</h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="tab_logic">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">SL.</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Skill</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($application->team as $member)
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center"><input type="text" name="tname[]" class="form-controll" value="{{ $member->name }}"></td>
+                                        <td class="text-center"><input type="text" name="temail[]" class="form-controll" value="{{ $member->email }}"></td>
+                                        <td class="text-center"><input type="text" name="tphone[]" class="form-controll" value="{{ $member->phone }}"></td>
+                                        <td class="text-center"><input type="text" name="tskill[]" class="form-controll" value="{{ $member->skill }}"></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="card">
+                <div class="header">
+                    <h2>ADD NEW TEAM MEMBERS</h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="tab_logic">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">SL.</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Skill</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr id="addr0">
+                                    <td class="text-center">1</td>
+                                    <td class="text-center"><input type="text" name="tname[]" class="form-controll"></td>
+                                    <td class="text-center"><input type="text" name="temail[]" class="form-controll"></td>
+                                    <td class="text-center"><input type="text" name="tphone[]" class="form-controll"></td>
+                                    <td class="text-center"><input type="text" name="tskill[]" class="form-controll"></td>
+                                </tr>
+                                <tr id="addr1"></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <button type="button" id="delete_row" class="btn btn-sm btn-danger btn-lg m-t-15 waves-effect">
+                        <i class="material-icons">remove</i>
+                        <span></span>
+                    </button>
+                    <button type="button" id="add_row" class="btn btn-sm btn-primary btn-lg m-t-15 waves-effect right">
+                        <i class="material-icons">add</i>
+                        <span></span>
+                    </button>
+                </div>
+            </div> --}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
@@ -183,6 +253,24 @@
 
 
 @push('scripts')
+    {{-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var i=1;
+            $("#add_row").click(function(){b=i-1;
+                $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+                $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+                i++;
+            });
+            $("#delete_row").click(function(){
+                if(i>1){
+                $("#addr"+(i-1)).html('');
+                i--;
+                }
+                calc();
+            });
+        });
+    </script> --}}
 
     <script src="{{ asset('backend/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
     <script src="{{asset('backend/plugins/tinymce/tinymce.js')}}"></script>

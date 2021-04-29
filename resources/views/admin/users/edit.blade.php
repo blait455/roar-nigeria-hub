@@ -11,7 +11,7 @@
                     <form action="{{ route('admin.users.update', $user) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        
+
                         <div class="form-group row">
                             <label for="name" class="col-md-2 col-form-label text-md-right">Name</label>
 
@@ -52,7 +52,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-sm btn-primary">Update</button>     
+                        <button type="submit" class="btn btn-sm btn-primary">Update</button>
                     </form>
                 </div>
             </div>
@@ -64,7 +64,7 @@
 
 @extends('backend.layouts.app')
 
-@section('title', 'Edit Post')
+@section('title', 'Edit Users')
 
 @push('styles')
 
@@ -129,7 +129,7 @@
                         <div class="form-group text-center">
                             <label for="form-label">Profile Image</label>
                             <input type="file" name="image">
-                        </div>    
+                        </div>
 
                         <div class="form-group form-float">
                             <div class="form-line {{$errors->has('tags') ? 'focused error' : ''}}">
@@ -141,7 +141,7 @@
                                 </select>
                             </div>
                         </div>
-                        
+
                         <a href="{{route('admin.users.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                             <i class="material-icons left">arrow_back</i>
                             <span>BACK</span>
@@ -171,7 +171,7 @@
 
         $('#roles').selectpicker();
         $('#roles').selectpicker('val',{{$selectedroles}});
-        
+
     </script>
 
     <script src="{{asset('backend/plugins/tinymce/tinymce.js')}}"></script>

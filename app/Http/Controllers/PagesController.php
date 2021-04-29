@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\About;
 use App\Aspect;
+use App\Blait;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Contact;
+use Illuminate\Support\Str;
 
 // use App\Property;
 use App\Message;
@@ -21,11 +23,15 @@ use App\Management;
 // use App\Rating;
 use App\Post;
 use App\Startup;
+use App\TeamMembers;
 use App\User;
 
 use Carbon\Carbon;
 use Auth;
 use DB;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 
 class PagesController extends Controller
 {
@@ -267,15 +273,60 @@ class PagesController extends Controller
         $startup->reason            = $request->reason;
         $startup->save();
 
+        for ($i=0; $i < count($request->tname); $i++) {
+            if (isset($request->temail[$i]) && isset($request->tphone[$i]) && isset($request->tskill[$i])) {
+                TeamMembers::create([
+                    'incubation_id'     =>  $startup->id,
+                    'name'              =>  $request->tname[$i],
+                    'email'             =>  $request->temail[$i],
+                    'phone'             =>  $request->tphone[$i],
+                    'skill'             =>  $request->tskill[$i],
+                ]);
+            }
+        }
+
+
         return view('frontend.pages.applications.success');
     }
 
-    public function roar_blait(){
+    public function wdts(){
         $aspect = Aspect::all();
 
         return view('frontend.pages.applications.roar_blait', compact('aspect'));
     }
 
+    public function wdtsStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $image = $request->file('pop');
+        $slug  = Str::slug($request->name);
+
+        if(isset($image)){
+            $currentDate = Carbon::now()->toDateString();
+            $imagename = $slug.'-'.$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+
+            if(!Storage::disk('public')->exists('blait/wdts')){
+                Storage::disk('public')->makeDirectory('blait/wdts');
+            }
+            $team = Image::make($image)->stream();
+            Storage::disk('public')->put('blait/wdts/'.$imagename, $team);
+        }else{
+            $imagename = 'default.png';
+        }
+
+        $student = new Blait();
+        $student->name              = $request->name;
+        $student->phone             = $request->phone;
+        $student->email             = $request->email;
+        $student->size              = $request->size;
+        $student->pop               = $imagename;
+        $student->save();
+
+        return view('frontend.pages.applications.success');
+    }
 
     // GALLERY PAGE
     public function gallery()

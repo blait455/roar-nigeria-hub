@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Replay Message')
+@section('title', 'Reply Message')
 
 @push('styles')
 

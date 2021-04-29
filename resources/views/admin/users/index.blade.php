@@ -28,11 +28,11 @@
                                     <td>{{ $user->email }}</td>
                                 <td>{{ implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
                                     <td>
-                                        @can('edit-users')       
+                                        @can('edit-users')
                                             <a href="{{ route('admin.users.edit', $user->id) }}"><button type="button" class="btn btn-sm btn-primary float-left mr-1">Edit</button></a>
                                         @endcan
 
-                                        @can('delete-users')    
+                                        @can('delete-users')
                                             <form action="{{ route('admin.users.destroy', $user) }}" class="float-left" method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -54,7 +54,7 @@
 
 @extends('backend.layouts.app')
 
-@section('title', 'USers')
+@section('title', 'Users')
 
 @push('styles')
 
@@ -149,7 +149,7 @@
 
     <script>
         function deleteTag(id){
-            
+
             swal({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",

@@ -64,17 +64,22 @@
                             <li class="{{Request::path() == 'about-us' ? 'current-menu-item' : ''}}">
                                 <a href="{{ route('about-us') }}">About Us</a>
                             </li>
-                            <li class="{{Request::path() == 'startups' ? 'current-menu-item' : ''}}">
-                                <a href="{{ route('startups') }}">Startups</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('events') }}">Events</a>
-                            </li>
-
-                            <li class="">
-                               <a href="{{ route('blog') }}">Blog</a>
-                            </li>
-                            <li>
+                            @if ($startups)
+                                <li class="{{Request::path() == 'startups' ? 'current-menu-item' : ''}}">
+                                    <a href="{{ route('startups') }}">Startups</a>
+                                </li>
+                            @endif
+                            @if ($events)
+                                <li class="{{Request::path() == 'events' ? 'current-menu-item' : ''}}">
+                                    <a href="{{ route('events') }}">Events</a>
+                                </li>
+                            @endif
+                            @if ($posts)
+                                <li class="{{Request::path() == 'blog' ? 'current-menu-item' : ''}}">
+                                    <a href="{{ route('blog') }}">Blog</a>
+                                </li>
+                            @endif
+                            <li class="{{Request::path() == 'contact' ? 'current-menu-item' : ''}}">
                                 <a href="{{ route('contact') }}">Contact Us</a>
                             </li>
                             <li class="menu-item-has-children">
@@ -98,7 +103,7 @@
                                     <a href="{{ route('login') }}">Login</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('register') }}">Register</a>
+                                    {{-- <a href="{{ route('register') }}">Register</a> --}}
                                 </li>
                             @endauth
                         </ul> <!-- //.nav-menu -->
@@ -115,10 +120,10 @@
                 </ul>
                 <div class="toolbar-sl-share">
                     <ul class="social">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="{{ $settings->facebook }}"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="{{ $settings->twitter }}"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="{{ $settings->linkedin }}"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="{{ $settings->instagram }}"><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
