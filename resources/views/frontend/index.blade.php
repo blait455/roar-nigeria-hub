@@ -86,7 +86,7 @@
                                 <div class="front-content-part">
                                     <div class="front-icon-part">
                                         <div class="icon-part">
-                                            <img src="assets/images/services/main-home/icons/1.png" alt="">
+                                            <img src="{{ asset('frontend/assets/images/services/main-home/icons/1.png') }}" alt="">
                                         </div>
                                     </div>
                                     <div class="front-title-part">
@@ -122,7 +122,7 @@
                                 <div class="front-content-part">
                                     <div class="front-icon-part">
                                         <div class="icon-part">
-                                            <img src="assets/images/services/main-home/icons/2.png" alt="">
+                                            <img src="{{ asset('frontend/assets/images/services/main-home/icons/3.png') }}" alt="">
                                         </div>
                                     </div>
                                     <div class="front-title-part">
@@ -158,7 +158,7 @@
                                 <div class="front-content-part">
                                     <div class="front-icon-part">
                                         <div class="icon-part">
-                                            <img src="assets/images/services/main-home/icons/3.png" alt="">
+                                            <img src="{{ asset('frontend/assets/images/services/main-home/icons/2.png') }}" alt="">
                                         </div>
                                     </div>
                                     <div class="front-title-part">
@@ -191,7 +191,7 @@
         </div>
         <div class="shape-animation">
             <div class="shape-part">
-                <img class="dance" src="assets/images/services/s2.png" alt="images">
+                <img class="dance" src="{{ asset('frontend/assets/images/services/s2.png') }}" alt="images">
             </div>
         </div>
     </div>
