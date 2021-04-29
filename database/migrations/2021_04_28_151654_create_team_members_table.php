@@ -16,7 +16,7 @@ class CreateTeamMembersTable extends Migration
         Schema::create('team_members', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('startup_id')->nullable();
-            $table->unsignedBigInteger('incu_id')->nullable();
+            $table->unsignedBigInteger('incubation_id')->nullable();
             $table->string('name');
             $table->string('email');
             $table->string('skill');
@@ -24,7 +24,7 @@ class CreateTeamMembersTable extends Migration
             $table->timestamps();
 
             $table->foreign('startup_id')->references('id')->on('startups')->onDelete('cascade');
-            $table->foreign('incu_id')->references('id')->on('incubations')->onDelete('cascade');
+            $table->foreign('incubation_id')->references('id')->on('incubations')->onDelete('cascade');
 
         });
     }
