@@ -32,20 +32,14 @@
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
-                            <input type="text" name="reason" class="form-control" value="{{ $application->reason }}">
-                            <label class="form-label">Why this idea</label>
-                        </div>
-                    </div>
-                    <div class="form-group form-float">
-                        <div class="form-line">
                             <input type="text" name="problem" class="form-control" value="{{ $application->problem }}">
-                            <label class="form-label">What is the problem you are solving</label>
+                            <label class="form-label">Briefly state the problem you are solving & the approach</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input type="text" name="motivation" class="form-control" value="{{ $application->motivation }}">
-                            <label class="form-label">What is your motivation</label>
+                            <label class="form-label">What is the motivation towards your start-up</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
@@ -98,27 +92,6 @@
                             <label class="form-label">Email</label>
                         </div>
                     </div>
-                    <hr>
-                    <label class="form-label">Status</label>
-                    <div class="row">
-                        <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="incubatee" value="1" {{ $application->status == 1 ? 'checked' : '' }}>
-                            <label class="form-check-label" for="incubatee">Incubatee</label>
-                        </div>
-                        <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="mvp" value="2" {{ $application->status == 2 ? 'checked' : '' }}>
-                            <label class="form-check-label" for="mvp">MVP</label>
-                        </div>
-                        <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="pmvp" value="3" {{ $application->status == 3 ? 'checked' : '' }}>
-                            <label class="form-check-label" for="pmvp">Post MVP</label>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="">Full description of the idea</label>
-                        <textarea name="idea_description" id="tinymce">{{ $application->idea_description }}</textarea>
-                    </div>
                 </div>
             </div>
             <div class="card">
@@ -152,45 +125,6 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="card">
-                <div class="header">
-                    <h2>ADD NEW TEAM MEMBERS</h2>
-                </div>
-                <div class="body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="tab_logic">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">SL.</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Email</th>
-                                    <th class="text-center">Phone</th>
-                                    <th class="text-center">Skill</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr id="addr0">
-                                    <td class="text-center">1</td>
-                                    <td class="text-center"><input type="text" name="tname[]" class="form-controll"></td>
-                                    <td class="text-center"><input type="text" name="temail[]" class="form-controll"></td>
-                                    <td class="text-center"><input type="text" name="tphone[]" class="form-controll"></td>
-                                    <td class="text-center"><input type="text" name="tskill[]" class="form-controll"></td>
-                                </tr>
-                                <tr id="addr1"></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <button type="button" id="delete_row" class="btn btn-sm btn-danger btn-lg m-t-15 waves-effect">
-                        <i class="material-icons">remove</i>
-                        <span></span>
-                    </button>
-                    <button type="button" id="add_row" class="btn btn-sm btn-primary btn-lg m-t-15 waves-effect right">
-                        <i class="material-icons">add</i>
-                        <span></span>
-                    </button>
-                </div>
-            </div> --}}
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">
@@ -201,8 +135,9 @@
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('aspects') ? 'focused error' : ''}}">
-                            <label>Select Aspect</label>
+                            <label>Select Startup category</label>
                             <select name="aspect_id" class="form-control show-tick">
+                                <option value="">Select category</option>
                                 @foreach($aspects as $aspect)
                                     <option value="{{$aspect->id}}" {{ $application->aspect_id == $aspect->id ? 'checked' : '' }}>{{$aspect->title}}</option>
                                 @endforeach
@@ -212,7 +147,7 @@
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('type') ? 'focused error' : ''}}">
-                            <label>Select Idea type</label>
+                            <label>Select Startup type</label>
                             <select name="type" class="form-control show-tick">
                                     <option value="">Select type</option>
                                     <option value="software" {{ $application->type = 'software' ? 'checked' : '' }}>Software</option>
@@ -253,25 +188,6 @@
 
 
 @push('scripts')
-    {{-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            var i=1;
-            $("#add_row").click(function(){b=i-1;
-                $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
-                $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
-                i++;
-            });
-            $("#delete_row").click(function(){
-                if(i>1){
-                $("#addr"+(i-1)).html('');
-                i--;
-                }
-                calc();
-            });
-        });
-    </script> --}}
-
     <script src="{{ asset('backend/plugins/bootstrap-select/js/bootstrap-select.js') }}"></script>
     <script src="{{asset('backend/plugins/tinymce/tinymce.js')}}"></script>
     <script>

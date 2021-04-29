@@ -235,12 +235,12 @@
                 <div class="col-lg-5">
                     <div class="process-wrap bg9" style="background-image:url({{Storage::url('background/'.$background->f3_bg)}});">
                         <div class="sec-title mb-30 ">
-                            <div class="sub-text new">How We Works</div>
+                            <div class="sub-text new">How We Work</div>
                             <h2 class="title title4 white-color pb-20">
                                 How Roar Nigeria Hub assist your business
                             </h2>
                             <div class="desc white-color">
-                                Bring to the table win-win survival strategies to ensure dotted proactive domination. At the end of the day, on going forward, anew normal that has evolved from the generation on streamlined.
+                                Roar Nigeria hub is a community that provides bussiness incubation, condusive office & event space, Business consultancy services and (internal & external) networking with VCs and angel investor networks through collaboration & partnership.
                             </div>
                             <div class="btn-part mt-40">
                                 <a class="readon discover started" href="contact.html">Learn More</a>

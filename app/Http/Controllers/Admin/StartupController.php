@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Aspect;
 use App\Http\Controllers\Controller;
 use App\Startup;
+use App\TeamMembers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -104,6 +105,18 @@ class StartupController extends Controller
         $startup->image = $imagename;
         $startup->logo = $logoname;
         $startup->save();
+
+        for ($i=0; $i < count($request->tname); $i++) {
+            if (isset($request->temail[$i]) && isset($request->tphone[$i]) && isset($request->tskill[$i])) {
+                TeamMembers::create([
+                    'startup_id'    =>  $startup->id,
+                    'name'          =>  $request->tname[$i],
+                    'email'         =>  $request->temail[$i],
+                    'phone'         =>  $request->tphone[$i],
+                    'skill'         =>  $request->tskill[$i],
+                ]);
+            }
+        }
 
         Toastr::success('message', 'Startup created successfully.');
         return redirect()->route('admin.startup.index');

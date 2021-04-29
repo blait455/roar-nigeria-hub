@@ -33,6 +33,18 @@
                                     <th>Venture name</th>
                                     <th>Category</th>
                                     <th>Type</th>
+                                    <th>Solution</th>
+                                    <th>Motivation</th>
+                                    <th>How long</th>
+                                    <th>Business experience</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Age</th>
+                                    <th>Favorite color</th>
+                                    <th>Favorite subject</th>
+                                    <th>Course</th>
+                                    <th>Medium</th>
+                                    <th>Team</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -42,6 +54,18 @@
                                     <th>Venture name</th>
                                     <th>Category</th>
                                     <th>Type</th>
+                                    <th>Solution</th>
+                                    <th>Motivation</th>
+                                    <th>How long</th>
+                                    <th>Business experience</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Age</th>
+                                    <th>Favorite color</th>
+                                    <th>Favorite subject</th>
+                                    <th>Course</th>
+                                    <th>Medium</th>
+                                    <th>Team</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
@@ -52,6 +76,21 @@
                                     <td>{{$startup->name}}</td>
                                     <td>{{$startup->aspect->title}}</td>
                                     <td>{{ $startup->type }}</td>
+                                    <td>{{ $startup->problem }}</td>
+                                    <td>{{ $startup->motivation }}</td>
+                                    <td>{{ $startup->idea_duration }}</td>
+                                    <td>{{ $startup->biz_experience }}</td>
+                                    <td>{{ $startup->email }}</td>
+                                    <td>{{ $startup->phone }}</td>
+                                    <td>{{ $startup->age }}</td>
+                                    <td>{{ $startup->fav_color }}</td>
+                                    <td>{{ $startup->fav_subject }}</td>
+                                    <td>{{ $startup->course }}</td>
+                                    <td>{{ $startup->medium_aware }}</td>
+                                    <td>@foreach ($startup->team as $item)
+                                            <li><span>{{ $item->name }}, {{ $item->email }}, {{ $item->phone }}, {{ $item->skill }}</span></li>
+                                        @endforeach
+                                    </td>
                                     <td class="text-center">
                                         <a href="{{route('admin.incubation.edit',$startup->id)}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>

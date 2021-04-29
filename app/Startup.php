@@ -10,4 +10,8 @@ class Startup extends Model
     {
         return $this->belongsTo(Aspect::class);
     }
+
+    public function team() {
+        return $this->hasMany(TeamMembers::class);
+    }
 }

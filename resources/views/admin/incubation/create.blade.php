@@ -29,22 +29,22 @@
                             <label class="form-label">Idea/Venture name</label>
                         </div>
                     </div>
-                    <div class="form-group form-float">
+                    {{-- <div class="form-group form-float">
                         <div class="form-line">
                             <input type="text" name="reason" class="form-control" value="{{old('reason')}}">
                             <label class="form-label">Why this idea</label>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input type="text" name="problem" class="form-control" value="{{old('problem')}}">
-                            <label class="form-label">What is the problem you are solving</label>
+                            <label class="form-label">Briefly state the problem you are solving and the approach</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line">
                             <input type="text" name="motivation" class="form-control" value="{{old('motivation')}}">
-                            <label class="form-label">What is your motivation</label>
+                            <label class="form-label">What is the motivation towards your start-up</label>
                         </div>
                     </div>
                     <div class="form-group form-float">
@@ -97,27 +97,7 @@
                             <label class="form-label">Email</label>
                         </div>
                     </div>
-                    <hr>
-                    <label class="form-label">Status</label>
-                    <div class="row">
-                        <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="incubatee" value="1">
-                            <label class="form-check-label" for="incubatee">Incubatee</label>
-                        </div>
-                        <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="mvp" value="2">
-                            <label class="form-check-label" for="mvp">MVP</label>
-                        </div>
-                        <div class="form-check form-check-inline col-md-4">
-                            <input class="form-check-input" type="radio" name="status" id="pmvp" value="3">
-                            <label class="form-check-label" for="pmvp">Post MVP</label>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label for="">Full description of the idea</label>
-                        <textarea name="idea_description" id="tinymce">{{old('idea_description')}}</textarea>
-                    </div>
+
                 </div>
             </div>
             <div class="card">
@@ -168,7 +148,7 @@
 
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('aspects') ? 'focused error' : ''}}">
-                            <label>Idea Category</label>
+                            <label>Startup Category</label>
                             <select name="aspect_id" class="form-control show-tick">
                                 <option value="">Select category</option>
                                 @foreach($aspects as $aspect)
@@ -179,7 +159,7 @@
                     </div>
                     <div class="form-group form-float">
                         <div class="form-line {{$errors->has('type') ? 'focused error' : ''}}">
-                            <label>Select Idea type</label>
+                            <label>Startup type</label>
                             <select name="type" class="form-control show-tick">
                                     <option value="">Select type</option>
                                     <option value="software">Software</option>
@@ -200,7 +180,7 @@
                         </div>
                     </div>
 
-                    <a href="{{route('admin.posts.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
+                    <a href="{{route('admin.incubation.index')}}" class="btn btn-danger btn-lg m-t-15 waves-effect">
                         <i class="material-icons left">arrow_back</i>
                         <span>BACK</span>
                     </a>

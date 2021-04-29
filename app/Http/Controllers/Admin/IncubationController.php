@@ -60,9 +60,7 @@ class IncubationController extends Controller
         $startup->name              = $request->name;
         $startup->phone             = $request->phone;
         $startup->email             = $request->email;
-        $startup->status            = 1;
         $startup->idea_duration     = $request->idea_duration;
-        $startup->idea_description  = $request->idea_description;
         $startup->motivation        = $request->motivation;
         $startup->medium_aware      = $request->medium_aware;
         $startup->problem           = $request->problem;
@@ -72,13 +70,12 @@ class IncubationController extends Controller
         $startup->course            = $request->course;
         $startup->fav_subject       = $request->fav_subject;
         $startup->biz_experience    = $request->biz_experience;
-        $startup->reason            = $request->reason;
         $startup->save();
 
         for ($i=0; $i < count($request->tname); $i++) {
             if (isset($request->temail[$i]) && isset($request->tphone[$i]) && isset($request->tskill[$i])) {
                 TeamMembers::create([
-                    'incu_id'    =>  $startup->id,
+                    'incubation_id'    =>  $startup->id,
                     'name'          =>  $request->tname[$i],
                     'email'         =>  $request->temail[$i],
                     'phone'         =>  $request->tphone[$i],
@@ -134,9 +131,7 @@ class IncubationController extends Controller
         $startup->name              = $request->name;
         $startup->phone             = $request->phone;
         $startup->email             = $request->email;
-        $startup->status            = $request->status;
         $startup->idea_duration     = $request->idea_duration;
-        $startup->idea_description  = $request->idea_description;
         $startup->motivation        = $request->motivation;
         $startup->medium_aware      = $request->medium_aware;
         $startup->problem           = $request->problem;
@@ -146,7 +141,6 @@ class IncubationController extends Controller
         $startup->course            = $request->course;
         $startup->fav_subject       = $request->fav_subject;
         $startup->biz_experience    = $request->biz_experience;
-        $startup->reason            = $request->reason;
         $startup->update();
 
         Toastr::success('message', 'Application updated successfully.');

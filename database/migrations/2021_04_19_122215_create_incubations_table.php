@@ -19,7 +19,6 @@ class CreateIncubationsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('idea_duration');
-            $table->string('idea_description');
             $table->string('motivation');
             $table->string('medium_aware');
             $table->string('problem');
@@ -29,8 +28,6 @@ class CreateIncubationsTable extends Migration
             $table->string('course');
             $table->string('fav_subject');
             $table->string('biz_experience');
-            $table->string('reason');
-            $table->integer('status');
             $table->unsignedBigInteger('aspect_id');
             $table->timestamps();
             $table->foreign('aspect_id')->references('id')->on('aspects')->onDelete('cascade');

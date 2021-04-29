@@ -72,6 +72,37 @@
 
                 </div>
             </div>
+            <div class="card">
+                <div class="header">
+                    <h2>TEAM MEMBERS</h2>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable" id="tab_logic">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">SL.</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Email</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Skill</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($startup->team as $member)
+                                    <tr>
+                                        <td class="text-center">1</td>
+                                        <td class="text-center"><input type="text" name="tname[]" class="form-controll" value="{{ $member->name }}"></td>
+                                        <td class="text-center"><input type="text" name="temail[]" class="form-controll" value="{{ $member->email }}"></td>
+                                        <td class="text-center"><input type="text" name="tphone[]" class="form-controll" value="{{ $member->phone }}"></td>
+                                        <td class="text-center"><input type="text" name="tskill[]" class="form-controll" value="{{ $member->skill }}"></td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
             <div class="card">

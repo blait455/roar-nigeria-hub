@@ -71,14 +71,14 @@
                                     <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="name" name="name" placeholder="Idea/Venture name" required="">
                                     </div>
-                                    <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
+                                    {{-- <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="reason" name="reason" placeholder="Why this idea" required="">
+                                    </div> --}}
+                                    <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
+                                        <input class="from-control" type="text" id="problem" name="problem" placeholder="Briefly state the problem you are solving & the approach" required="">
                                     </div>
                                     <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
-                                        <input class="from-control" type="text" id="problem" name="problem" placeholder="What is the problem you are solving" required="">
-                                    </div>
-                                    <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
-                                        <input class="from-control" type="text" id="motivation" name="motivation" placeholder="What is your motivation" required="">
+                                        <input class="from-control" type="text" id="motivation" name="motivation" placeholder="What is the motivation towards your start-up" required="">
                                     </div>
                                     <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
                                         {{-- <label for="">How long have you been working on the idea</label> --}}
@@ -87,9 +87,9 @@
                                     <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="biz_experience" name="biz_experience" placeholder="Share with us your bussinesss experience if any" required="">
                                     </div>
-                                    <div class="col-lg-12 mb-30">
+                                    {{-- <div class="col-lg-12 mb-30">
                                         <textarea class="from-control" id="idea_description" name="idea_description" placeholder="Decribe your idea" required=""></textarea>
-                                    </div>
+                                    </div> --}}
                                     <hr>
                                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                                         <input class="from-control" type="text" id="email" name="email" placeholder="E-Mail" required="">
@@ -116,7 +116,7 @@
                                     </div> --}}
                                     <div class="col-lg-6 mb-30 col-md-6 col-sm-6">
                                         <select class="from-control" name="type" id="" required="">
-                                            <option value="">Your idea type</option>
+                                            <option value="">Select your startup type</option>
                                             <option value="software">Software</option>
                                             <option value="non software">Non software</option>
                                             <option value="both">Both</option>
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="col-lg-12 mb-30 col-md-6 col-sm-6">
                                         <select class="from-control" name="aspect_id" id="" required="">
-                                            <option value="">Select your Idea's Category</option>
+                                            <option value="">Select your Sartup Category</option>
                                             @foreach ($aspects as $aspect)
                                                 <option value="{{ $aspect->id }}">{{ $aspect->title }}</option>
                                             @endforeach
