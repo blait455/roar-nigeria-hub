@@ -59,8 +59,10 @@
                 <div class="col-lg-8 pl-70 md-pl-15">
                     <div class="contact-widget">
                        <div class="sec-title2 mb-40">
-                           {{-- <span class="sub-text contact mb-15">Get In Touch</span> --}}
+                           <span class="sub-text contact mb-15">WDTS</span>
                            <h2 class="title testi-title">Web Development Tutorial Series</h2>
+                           <p>Build an in-demand career skill by learning Web Development in this project driven tutorial series. <br>
+                            <strong>Registration fee is #50,000</strong></p>
 
                        </div>
                         <div id="form-messages"></div>

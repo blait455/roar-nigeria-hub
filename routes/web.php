@@ -26,10 +26,10 @@ Route::get('/events/{id}', 'PagesController@event')->name('event');
 Route::get('/events', 'PagesController@events')->name('events');
 Route::get('/gallery', 'PagesController@gallery')->name('gallery');
 
-Route::get('/applications/incubation', 'PagesController@incubation')->name('incubation');
-Route::post('/applications/store', 'PagesController@incubationStore')->name('incubation.store');
-Route::get('/register/wdts', 'PagesController@wdts')->name('wdts');
-Route::post('/register/wdts', 'PagesController@wdtsStore')->name('wdts.store');
+Route::get('/incubation', 'PagesController@incubation')->name('incubation');
+Route::post('/store', 'PagesController@incubationStore')->name('incubation.store');
+Route::get('/wdts', 'PagesController@wdts')->name('wdts');
+Route::post('/wdts', 'PagesController@wdtsStore')->name('wdts.store');
 
 Route::get('/blog', 'PagesController@blog')->name('blog');
 Route::get('/blog/{id}', 'PagesController@blogshow')->name('blog.show');
