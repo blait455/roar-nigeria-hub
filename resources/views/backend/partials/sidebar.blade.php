@@ -47,7 +47,7 @@
                     <li class="{{ Request::is('admin/testimonials*') ? 'active' : '' }}">
                         <a href="{{ route('admin.team.index') }}">
                             <i class="material-icons">people_outline</i>
-                            <span>Team</span>
+                            <span>Management Team</span>
                         </a>
                     </li>
 

@@ -56,7 +56,7 @@ class StartupController extends Controller
             'name' => 'required',
             // 'idea' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png',
-            'description' => 'required|max:200'
+            'description' => 'required'
         ]);
 
         $image = $request->file('image');
@@ -158,9 +158,9 @@ class StartupController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'idea' => 'required',
-            'image' => 'mimes:jpeg,jpg,png',
-            'description' => 'required|max:200',
+            // 'idea' => 'required',
+            // 'image' => 'mimes:jpeg,jpg,png',
+            'description' => 'required',
         ]);
 
         $image = $request->file('image');
