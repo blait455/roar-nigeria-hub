@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="block-header">
-        <a href="{{route('admin.team.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
+        <a href="{{route('admin.steam.create')}}" class="waves-effect waves-light btn right m-b-15 addbtn">
             <i class="material-icons left">add</i>
             <span>CREATE </span>
         </a>
@@ -32,7 +32,8 @@
                                     <th>SL.</th>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Position</th>
+                                    <th>Skill</th>
+                                    <th>Startup</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -41,7 +42,8 @@
                                     <th>SL.</th>
                                     <th>Name</th>
                                     <th>Image</th>
-                                    <th>Position</th>
+                                    <th>Skill</th>
+                                    <th>Startup</th>
                                     <th>Action</th>
                                 </tr>
                             </tfoot>
@@ -50,16 +52,17 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$user->name}}</td>
-                                    <td><img src="{{Storage::url('team/'.$user->image)}}" alt="{{$user->name}}" width="80" class="img-responsive img-rounded"></td>
-                                    <td>{{ $user->position }}</td>
+                                    <td><img src="{{Storage::url('startups/team/'.$user->image)}}" alt="{{$user->name}}" width="80" class="img-responsive img-rounded"></td>
+                                    <td>{{ $user->skill }}</td>
+                                    <td>{{ $user->startup->name }}</td>
                                     <td class="text-center">
-                                        <a href="{{route('admin.team.edit',$user->id)}}" class="btn btn-info btn-sm waves-effect">
+                                        <a href="{{route('admin.steam.edit',$user->id)}}" class="btn btn-info btn-sm waves-effect">
                                             <i class="material-icons">edit</i>
                                         </a>
                                         <button type="button" class="btn btn-danger btn-sm waves-effect" onclick="deleteTag({{$user->id}})">
                                             <i class="material-icons">delete</i>
                                         </button>
-                                        <form action="{{route('admin.team.destroy',$user->id)}}" method="POST" id="del-tag-{{$user->id}}" style="display:none;">
+                                        <form action="{{route('admin.steam.destroy',$user->id)}}" method="POST" id="del-tag-{{$user->id}}" style="display:none;">
                                             @csrf
                                             @method('DELETE')
                                         </form>

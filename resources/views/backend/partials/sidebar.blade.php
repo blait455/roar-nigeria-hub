@@ -44,14 +44,21 @@
                         </a>
                     </li>
 
-                    <li class="{{ Request::is('admin/testimonials*') ? 'active' : '' }}">
+                    <li class="{{ Request::is('admin/steam*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.steam.index') }}">
+                            <i class="material-icons">face</i>
+                            <span>Startups Team</span>
+                        </a>
+                    </li>
+
+                    <li class="{{ Request::is('admin/team*') ? 'active' : '' }}">
                         <a href="{{ route('admin.team.index') }}">
                             <i class="material-icons">people_outline</i>
                             <span>Management Team</span>
                         </a>
                     </li>
 
-                    <li class="{{ Request::is('admin/testimonials*') ? 'active' : '' }}">
+                    <li class="{{ Request::is('admin/about*') ? 'active' : '' }}">
                         <a href="{{ route('admin.about.index') }}">
                             <i class="material-icons">info</i>
                             <span>About</span>

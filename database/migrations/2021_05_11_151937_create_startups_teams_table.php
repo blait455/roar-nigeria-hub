@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeamMembersTable extends Migration
+class CreateStartupsTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,15 @@ class CreateTeamMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('team_members', function (Blueprint $table) {
+        Schema::create('startups_teams', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('startup_id')->nullable();
-            $table->unsignedBigInteger('incubation_id')->nullable();
+            $table->unsignedBigInteger('startup_id');
             $table->string('name');
             $table->string('email');
-            $table->string('skill');
             $table->string('phone');
+            $table->string('skill');
             $table->string('image')->nullable();
             $table->timestamps();
-
-            $table->foreign('startup_id')->references('id')->on('startups')->onDelete('cascade');
-            $table->foreign('incubation_id')->references('id')->on('incubations')->onDelete('cascade');
-
         });
     }
 
@@ -37,6 +32,6 @@ class CreateTeamMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('team_members');
+        Schema::dropIfExists('startups_teams');
     }
 }
