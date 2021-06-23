@@ -92,6 +92,12 @@
                             <span>Incubation</span>
                         </a>
                     </li>
+                    <li class="{{ Request::is('admin/rtc*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.rtc.index') }}">
+                            <i class="material-icons">forum</i>
+                            <span>Roar-TC</span>
+                        </a>
+                    </li>
                     <li class="{{ Request::is('admin/wdts*') ? 'active' : '' }}">
                         <a href="{{ route('admin.wdts.index') }}">
                             <i class="material-icons">code</i>

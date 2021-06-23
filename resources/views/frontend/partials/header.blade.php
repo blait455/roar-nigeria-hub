@@ -90,7 +90,7 @@
                                     <li><a href="#">Master Class Facilitator</a></li>
                                     <li><a href="#">Mentor/Coach</a></li>
                                     <li><a href="#">Roar Angels Network</a></li>
-                                    <li><a href="#">Roar Technology Community</a></li>
+                                    <li><a href="{{ route('rtc') }}">Roar Technology Community</a></li>
                                 </ul>
                             </li>
                             |

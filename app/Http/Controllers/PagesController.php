@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use App\Message;
 use App\Gallery;
 use App\Comment;
+use App\Community;
 use App\Contact as AppContact;
 use App\Event;
 use App\Incubation;
@@ -320,6 +321,28 @@ class PagesController extends Controller
         $student->email             = $request->email;
         $student->size              = $request->size;
         $student->pop               = $imagename;
+        $student->save();
+
+        return view('frontend.pages.applications.success');
+    }
+
+    public function rtc(){
+        return view('frontend.pages.applications.roar_tc');
+    }
+
+    public function rtcStore(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $student = new Community();
+        $student->name              = $request->name;
+        $student->phone             = $request->phone;
+        $student->email             = $request->email;
+        $student->dept              = $request->dept;
+        $student->field             = $request->field;
+        $student->level             = $request->level;
         $student->save();
 
         return view('frontend.pages.applications.success');
