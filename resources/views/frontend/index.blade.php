@@ -310,7 +310,7 @@
     <!-- Process Section End -->
 
     <!-- Case Study Section Start -->
-    @if ($startups)
+    @if (count($startups) > 0)
         <div class="rs-case-study primary-background">
             <div class="row margin-0 align-items-center">
                 <div class="col-lg-4 padding-0">
@@ -355,7 +355,7 @@
     <!-- Case Study Section Start -->
 
     <!-- Events Section Start -->
-    @if ($events)
+    @if (count($events) > 0)
         <div id="rs-blog" class="rs-blog gray-color pt-120 pb-120 md-pt-75 md-pb-80">
             <div class="container pt-relative">
                 <div class="sec-left">
@@ -383,7 +383,7 @@
     <!-- Events Section End -->
 
     <!-- Blog Section Start -->
-    @if ($posts)
+    @if (count($posts) > 0)
         <div id="rs-blog" class="rs-blog pb-120 pt-120 md-pt-80 md-pb-80">
             <div class="container">
                 <div class="sec-title2 text-center mb-45">
@@ -425,21 +425,23 @@
     <!-- Blog Section End -->
 
     <!-- Partner Start -->
-    <div class="rs-partner pt-80 pb-70">
-        <div class="container">
-            <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="30" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="3" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
-                @foreach ($partners as $partner)
-                    <div class="partner-item">
-                        <div class="logo-img">
-                            <a href="{{ $partner->link }}">
-                                <img class="hover-logo" src="{{ Storage::url('partners/'.$partner->logo) }}" alt="">
-                                <img class="main-logo" src="{{ Storage::url('partners/'.$partner->logo) }}" alt="">
-                            </a>
+    @if (count($partners) > 0)
+        <div class="rs-partner pt-80 pb-70">
+            <div class="container">
+                <div class="rs-carousel owl-carousel" data-loop="true" data-items="5" data-margin="30" data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800" data-dots="false" data-nav="false" data-nav-speed="false" data-center-mode="false" data-mobile-device="2" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="3" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="5" data-md-device-nav="false" data-md-device-dots="false">
+                    @foreach ($partners as $partner)
+                        <div class="partner-item">
+                            <div class="logo-img">
+                                <a href="{{ $partner->link }}">
+                                    <img class="hover-logo" src="{{ Storage::url('partners/'.$partner->logo) }}" alt="">
+                                    <img class="main-logo" src="{{ Storage::url('partners/'.$partner->logo) }}" alt="">
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
-    </div>
+    @endif
     <!-- Partner End -->
 @endsection
