@@ -66,6 +66,7 @@
                                 <option value="web development">Web development</option>
                                 <option value="mobile app development">Mobile App development</option>
                                 <option value="ui/ux">UI/UX</option>
+                                <option value="quantum computing">Quantum computing</option>
                                 <option value="graphic design">Graphic design</option>
                                 <option value="content creation/blogging">Content creation/Blogging</option>
                                 <option value="copywriting">Copywriting</option>

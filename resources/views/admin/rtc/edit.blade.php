@@ -67,6 +67,7 @@
                                 <option value="web development" {{ $student->field == 'web development' ? 'selected' : ''}}>Web development</option>
                                 <option value="mobile app development" {{ $student->field == 'mobile app development' ? 'selected' : ''}}>Mobile App development</option>
                                 <option value="ui/ux" {{ $student->field == 'ui/ux' ? 'selected' : ''}}>UI/UX</option>
+                                <option value="quantum computing" {{ $student->field == 'quantum computing' ? 'selected' : ''}}>Quantum computing</option>
                                 <option value="graphic design" {{ $student->field == 'graphic design' ? 'selected' : ''}}>Graphic design</option>
                                 <option value="content creation/blogging" {{ $student->field == 'content creation/blogging' ? 'selected' : ''}}>Content creation/Blogging</option>
                                 <option value="copywriting" {{ $student->field == 'copywriting' ? 'selected' : ''}}>Copywriting</option>
