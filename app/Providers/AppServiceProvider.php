@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('contactsettings', Setting::select('phone','email','address')->get());
             });
 
-            view()->composer('frontend.pages.blog', function($view) {
+            view()->composer('frontend.pages.sidebar', function($view) {
 
                 $archives     = Post::archives();
                 $categories   = Category::has('posts')->withCount('posts')->get();

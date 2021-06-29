@@ -83,24 +83,22 @@ class PagesController extends Controller
         $year  = request('year');
         $posts = Post::latest()->withCount('comments')->where('status',1)->paginate(10);
         $latest_posts = Post::where('status','1')->orderBy('id','DESC')->limit(3)->get();
-// dd($posts);
+        $categories   = Category::has('posts')->withCount('posts')->get();
 
-        return view('frontend.pages.blog', compact('posts', 'latest_posts'));
+        return view('frontend.pages.blog', compact('posts', 'latest_posts', 'categories'));
     }
 
     public function blogshow($slug)
     {
-        $post = Post::with('comments')->withCount('comments')->where('slug', $slug)->first();
+        $post = Post::where('slug', $slug)->first();
 
         $blogkey = 'blog-' . $post->id;
         if(!Session::has($blogkey)){
             $post->increment('view_count');
             Session::put($blogkey,1);
         }
-        $latest_posts = Post::where('status','1')->orderBy('id','DESC')->limit(3)->get();
-        $categories   = Category::has('posts')->withCount('posts')->get();
-
-        return view('frontend.pages.blog-single', compact('post', 'latest_posts', 'categories'));
+        
+        return view('frontend.pages.blog-single', compact('post'));
     }
 
 
